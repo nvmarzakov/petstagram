@@ -19,4 +19,8 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('petstagram_workshop.common.urls')),
+    path('accounts/', include('petstagram_workshop.accounts.urls')),
+    path('pets/', include('petstagram_workshop.pets.urls')),
+    path('photos/', include('petstagram_workshop.photos.urls')),
 ]
