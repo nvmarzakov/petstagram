@@ -29,6 +29,7 @@ class PhotoComment(models.Model):
 
 
 class PhotoLike(models.Model):
+    # Photo's field for likes in is named '{NAME_OF_THIS_MODEL.lower()}_set'
     photo = models.ForeignKey(
         Photo,
         on_delete=models.RESTRICT,
