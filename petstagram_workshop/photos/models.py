@@ -1,8 +1,10 @@
 # photos/models.py
+from django.core.exceptions import ValidationError
 from django.db import models
 from django.core.validators import MinLengthValidator
 
 from petstagram_workshop.pets.models import Pet
+from petstagram_workshop.photos.validators import validate_file_less_than_5mb
 
 
 # Create your models here.
@@ -14,8 +16,10 @@ class Photo(models.Model):
 
     # Requires media files to work correctly
     photo = models.ImageField(
+        upload_to='mediafiles/pet_photos/',
         null=False,
         blank=True,
+        validators=(validate_file_less_than_5mb,)
     )
 
     description = models.CharField(
