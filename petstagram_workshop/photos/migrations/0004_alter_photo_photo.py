@@ -5,7 +5,6 @@ import petstagram_workshop.photos.validators
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('photos', '0003_alter_photo_tagged_pets'),
     ]
@@ -14,6 +13,9 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='photo',
             name='photo',
-            field=models.ImageField(blank=True, upload_to='mediafiles/pet_photos/', validators=[petstagram_workshop.photos.validators.validate_file_less_than_5mb]),
+            field=models.ImageField(
+                blank=True,
+                upload_to='mediafiles/pet_photos/',
+                validators=[petstagram_workshop.photos.validators.validate_file_less_than_5mb]),
         ),
     ]

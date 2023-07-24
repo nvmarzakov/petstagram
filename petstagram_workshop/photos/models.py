@@ -3,12 +3,14 @@ from django.core.exceptions import ValidationError
 from django.db import models
 from django.core.validators import MinLengthValidator
 
+from petstagram_workshop.core.model_mixin import StrFromFieldsMixin
 from petstagram_workshop.pets.models import Pet
 from petstagram_workshop.photos.validators import validate_file_less_than_5mb
 
 
 # Create your models here.
-class Photo(models.Model):
+class Photo(StrFromFieldsMixin, models.Model):
+    str_fields = ('photo', 'location')
     MAX_LEN_DESCRIPTION = 300
     MIN_LEN_DESCRIPTION = 10
 
